@@ -60,7 +60,7 @@ hydrate_tweets <- function(ids,  bearer_token = get_bearer(), data_path = NULL,
       } else {
         n_tweets <- nrow(new_df)
       }
-      .vcat(verbose, "Total of ", n_tweets, " out of ", length(ids), " tweet(s) retrieved.\n")
+      .vcat(verbose, "Total of", nrow(dplyr::filter(new_df, is.na(error))), "out of", length(ids), "tweets retrieved.\n")
     }
   }
   if (bind_tweets) {
